@@ -12,12 +12,12 @@ public class MeasureDepth : MonoBehaviour
     public const int CAMERA_RESOLUTION_X = 1920;
     public const int CAMERA_RESOLUTION_Y = 1080;
 
-    public float CANVAS_SCALE = 0.5609375f;
+    public float CANVAS_SCALE = 1f;
 
     private const int TRIGGER_POINT_INTERVAL = 3;
     private const int TRIGGER_REQUIRED_POINTS = 5;
 
-    // private const int TRIGGER_RECT_SIZE = 5;
+    private const int TRIGGER_RECT_SIZE = 5;
 
     public MultiSourceManager _multiManager = null;
 
@@ -75,8 +75,7 @@ public class MeasureDepth : MonoBehaviour
             _triggerPoints = MakeTriggerPoints();
         }
     }
-
-    /* On GUI, For debug
+    
     private void OnGUI()
     {
         if (_triggerPoints == null)
@@ -84,13 +83,12 @@ public class MeasureDepth : MonoBehaviour
 
         foreach (Vector2 point in _triggerPoints)
         {
-            Vector2 rectSize = new Vector2(RECT_SIZE, RECT_SIZE);
+            Vector2 rectSize = new Vector2(TRIGGER_RECT_SIZE, TRIGGER_RECT_SIZE);
             Rect rect = new Rect(point, rectSize);
 
             GUI.Box(rect, "");
         }
     }
-    */
 
     #region Is Trigger
     public bool IsTrigger(Rect cameraResolutionRect)
